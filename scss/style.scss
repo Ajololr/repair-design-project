@@ -1,0 +1,140 @@
+$dark-color: #131313;
+$light-color: #fff;
+$mid-color: #E3B873;
+$break-tablet: 980px;
+$break-mobile: 375px;
+$max-width: 1440px;
+$current-width: 100vw;
+$intro-height: 707px;
+$completed-projects-height: 1074px;
+$broadcast-form-height: 360px;
+$types-container-height: 800px;
+$measurement-form-container-height: 725px;
+$style-choice-container-height: 1017px;
+$design-choice-container-height: 921px;
+$steps-container-height: 1615px;
+$team-container-height: 643px;
+$clients-container-height: 642px;
+$questions-form-container-height: 445px;
+$contacts-container-height: 100px;
+$map-API-container-height: 465px;
+
+body {
+  max-width: $max-width;
+  width: $current-width;
+  margin: 0 auto;
+  background-color: $light-color;
+  @media screen and (max-width: $break-mobile) {
+    width: $break-mobile;
+    background-color: $dark-color;
+  }
+}
+
+header, footer {
+  background-color: $dark-color;
+  height: 83px;
+  @media screen and (max-width: $break-mobile) {
+    .navigation, 
+    .call-btn {
+      display: none; 
+    }
+    height: 57px;
+  }
+}
+
+.intro-container {
+  height: $intro-height;
+  background-color: $dark-color;
+  @media screen and (max-width: $break-mobile) {
+    &__aside {
+      display: none;
+    }
+    height: 471px;
+  }
+}
+
+.completed-projects-container {
+  height: $completed-projects-height;
+  background-color: $dark-color;
+  @media screen and (max-width: $break-mobile) {
+    height: 700px;
+  }
+}
+
+.broadcast-form-container {
+  height: $broadcast-form-height;
+  @media screen and (max-width: $break-mobile) {
+    height: 850px;
+  }
+}
+
+.types-container {
+  height: $types-container-height;
+  @media screen and (max-width: $break-mobile) {
+    height: 2030px;
+    background-color: $light-color;
+  }
+}
+
+.measurement-form-container {
+  height: $measurement-form-container-height;
+  @media screen and (max-width: $break-mobile) {
+    display: none;
+  }
+}
+
+.style-choice-container {
+  height: $style-choice-container-height;
+  background-color: $dark-color;
+  @media screen and (max-width: $break-mobile) {
+    height: 242px;
+    width: 340px;
+  }
+}
+
+.design-choice-container {
+  height: $design-choice-container-height;
+  @media screen and (max-width: $break-mobile) {
+    height: 930px;
+  }
+}
+
+.steps-container {
+  height: $steps-container-height;
+  background-color: $dark-color;
+  @media screen and (max-width: $break-mobile) {
+    display: none;
+  }
+}
+
+.team-container {
+  height: $team-container-height;
+  background-color: $dark-color;
+  @media screen and (max-width: $break-mobile) {
+    height: 1700px;
+  }
+}
+
+.clients-container {
+  height: $clients-container-height;
+  @media screen and (max-width: $break-mobile) {
+    display: none;
+  }
+}
+
+.questions-form-container {
+  height: $questions-form-container-height;
+  background-color: $dark-color;
+  @media screen and (max-width: $break-mobile) {
+    height: 550px;
+  }
+}
+
+.contacts-container {
+  height: $contacts-container-height;
+  background-color: $dark-color;
+}
+
+.map-API-container {
+  height: $map-API-container-height;
+}
