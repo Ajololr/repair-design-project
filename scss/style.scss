@@ -1,6 +1,8 @@
 $dark-color: #131313;
 $light-color: #fff;
 $mid-color: #E3B873;
+$li-color: #959595;
+
 $break-tablet: 980px;
 $break-mobile: 375px;
 $max-width: 1440px;
@@ -19,6 +21,98 @@ $questions-form-container-height: 445px;
 $contacts-container-height: 100px;
 $map-API-container-height: 465px;
 
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/RSSchool/repair-design-project/assets/fonts/ProximaNova-Regular.eot');
+  src: url('/RSSchool/repair-design-project/assets/fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+      url('/RSSchool/repair-design-project/assets/fonts/ProximaNova-Regular.woff2') format('woff2'),
+      url('/RSSchool/repair-design-project/assets/fonts/ProximaNova-Regular.woff') format('woff'),
+      url('/RSSchool/repair-design-project/assets/fonts/ProximaNova-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaBookC';
+  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.eot');
+  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.eot?#iefix') format('embedded-opentype'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.woff2') format('woff2'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.woff') format('woff'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaDemiC';
+  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaDemiC.eot');
+  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaDemiC.eot?#iefix') format('embedded-opentype'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaDemiC.woff2') format('woff2'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaDemiC.woff') format('woff'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaDemiC.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaMediumC';
+  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaMediumC.eot');
+  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaMediumC.eot?#iefix') format('embedded-opentype'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaMediumC.woff2') format('woff2'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaMediumC.woff') format('woff'),
+      url('/RSSchool/repair-design-project/assets/fonts/FuturaMediumC.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Yeseva One';
+  src: url('/RSSchool/repair-design-project/assets/fonts/YesevaOne.eot');
+  src: url('/RSSchool/repair-design-project/assets/fonts/YesevaOne.eot?#iefix') format('embedded-opentype'),
+      url('/RSSchool/repair-design-project/assets/fonts/YesevaOne.woff2') format('woff2'),
+      url('/RSSchool/repair-design-project/assets/fonts/YesevaOne.woff') format('woff'),
+      url('/RSSchool/repair-design-project/assets/fonts/YesevaOne.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@mixin position-settings($position: static, $top: 0, $left: 0, $bottom: 0, $right: 0, $margin: 0) {
+  position: $position;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+  margin: $margin;
+}
+
+@mixin block-settings($display: block, $width: 10%, $height: 10%, $border: none, $border-radius: 0, $background-color: transparent) {
+  display: $display;
+  box-sizing: border-box;
+  width: $width;
+  height: $height;
+  border: $border;
+  border-radius: $border-radius;
+  background-color: $background-color;
+}
+
+@mixin text-settings($font-family: sans-serif, $text-align: none, $text-transform: none, $font-size: 1em, $line-height: 1em, $color: $light-color) {
+  font-family: $font-family;
+  text-align: $text-align;
+  text-transform: $text-transform;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
+}
+
+@mixin flex-settings($flex-direction: row, $flex-wrap: nowrap, $justify-content: center, $align-items: center, $align-content: center) {
+  display: flex;
+  flex-flow: $flex-direction $flex-wrap;
+  justify-content:  $justify-content;
+  align-items: $align-items;
+  align-content: $align-content;
+}
+
 body {
   max-width: $max-width;
   width: $current-width;
@@ -33,11 +127,75 @@ body {
 header, footer {
   background-color: $dark-color;
   height: 83px;
-  @media screen and (max-width: $break-mobile) {
-    .navigation, 
-    .call-btn {
-      display: none; 
+  .header-container{
+    position: relative;
+    left: 5.7%;
+    top: 23.2%;
+    width: 87%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    &__logo {
+      font-family: "FuturaDemiC";
+      font-size: 1em;
+      line-height: 16px;
+      height: 16px;
+      color: $mid-color;
+      text-transform: uppercase;
+    };
+    &__navigation {
+      width: 46%;
+        ul{
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        & li {    
+          list-style: none;
+          font-family: "FuturaBookC";
+          font-size: 1em;
+          color: $light-color;
+          line-height: 16px;
+          text-transform: uppercase;
+          &:hover {
+            color: $mid-color;
+            cursor: pointer;
+          }
+        }
+      }
+      @media screen and (max-width: $break-mobile) {
+        display: none;
+        font-size: 0.8em;
+      }
     }
+    &__tel {
+      color: $mid-color;
+      font-size: 1em;
+      font-family: "FuturaDemiC";
+    }
+    &__call-btn {
+      border-radius: 2px;
+      background-color: $mid-color;
+      width: 161px;
+      height: 37px;
+      border: none;
+      color: $light-color;
+      font-size: 0.9em;
+      line-height: 15px;
+      font-family: "FuturaDemiC";
+      text-transform: uppercase;
+      &:hover {
+        color: $dark-color;
+      }
+      @media screen and (max-width: $break-mobile) {
+        display: none;
+        font-size: 0.8em;
+      }
+    }
+  }
+  @media screen and (max-width: $break-mobile) {
     height: 57px;
   }
 }
@@ -45,10 +203,98 @@ header, footer {
 .intro-container {
   height: $intro-height;
   background-color: $dark-color;
-  @media screen and (max-width: $break-mobile) {
-    &__aside {
+  &__aside {
+    width: 707px;
+    height: 82px;
+    transform: rotate(90deg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    left: -312px;
+    top: 313px;
+    a {
+      font-family: "FuturaDemiC";
+      text-transform: uppercase;
+      color: $mid-color;
+      text-decoration: none;
+    }
+    img {
+      transform: rotate(90deg);
+      margin-left: 30px;
+    }
+    @media screen and (max-width: $break-mobile) {
       display: none;
     }
+  }
+  .image-wrapper {
+    font-size: 40px;
+    display: inline-block;
+    position: relative;
+    background-image: url("/RSSchool/repair-design-project/assets/images/intro.svg");
+    width: 1358px;
+    height: 100%;
+    left: 82px;
+    top: -83px;
+    &__logo {
+      @include position-settings(static, 0, 0, 0, 0, 14% 4.5% 0);
+      @include text-settings("Yeseva One", left, uppercase, 1em, 1.325em, $light-color);
+      @include block-settings(block, 90%, 12%);
+      font-style: normal;
+      font-weight: normal;
+      span {
+        color: $mid-color;  
+      }
+    }
+    &__text {
+      @include position-settings(static, 0, 0, 0, 0, 2% 4.5%);
+      @include text-settings("FuturaBookC", left, normal, 0.55em, 1.325em, $light-color);
+      @include block-settings(block, 37%, 12%);
+      text-align: left;
+      @media screen and (max-width: $break-mobile) {
+        width: 55%;
+      }
+    }
+    &__button {
+      @include position-settings(static, 0, 0, 0, 0, 0 0 0 4.5%);
+      @include text-settings("FuturaDemiC", center, normal, 0.325em, 0.4em, $light-color);
+      @include block-settings(inline-block, 207px, 51px, 1px solid #FFFFFF, 2px);
+      &:hover {
+        background-color: $mid-color;
+      }
+      &:last-child {
+        margin-left: 20px;
+      }
+      @media screen and (max-width: $break-mobile) {
+        width: 338px;
+        display: block;
+        font-size: 13px;
+        margin: 20px auto;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      width: 100%;
+      position: static;
+      font-size: 23px;
+    }
+  }
+  &__scroll-button{
+    @include position-settings(relative, -130px, 0, 0, 0, 0);
+    @include block-settings(inline-block, 247px, 97px, none, none, $dark-color);
+    @include text-settings("Yeseva One", center, uppercase, 14px, 19px, $light-color);
+    @include flex-settings(row, nowrap, center, center, center);
+    img {
+      margin-left: 10px;
+    }
+    &:hover {
+      color: $mid-color;
+    }
+    @media screen and (max-width: $break-mobile) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: $break-mobile) {
     height: 471px;
   }
 }
@@ -70,6 +316,63 @@ header, footer {
 
 .types-container {
   height: $types-container-height;
+  font-size: 20px;
+  &__logo {
+    @include text-settings("Yeseva One", center, uppercase, 1em, 1.4em, $dark-color);
+    @include block-settings(inline-block, 100%, 1em, none, none, transparent);
+    @media screen and (max-width: $break-mobile) {
+      margin-top: 80px;
+    }
+  };
+  &__icon {
+    @include block-settings(block, 100%, 1.4em, none, none, transparent)
+  }
+  .types {
+    @include flex-settings(row, wrap, space-between, center, center);
+    @include position-settings(static, 0, 0, 0, 0, 30px auto);
+    margin: 30px 100px;
+    &__item {
+      @include block-settings(inline-block, 32%, 613px, none, none, none);  
+      &_img {
+        @include block-settings(block, 100%, 69%, none, none);
+      }
+      &_list {
+        @include block-settings(block, 84%, 47%, none, none, $light-color);
+        @include position-settings(relative, -127px, 0, 0, 0, 0 auto);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+        h3 {
+          @include text-settings("Yeseva One", left, none, 0.9em, 1em‬, $dark-color);
+          @include position-settings(relative, 5px, -17px, 0, 0, 0);
+          font-style: normal;
+          font-weight: normal;
+        }
+        li {
+          @include text-settings("FuturaBookC", left, none, 0.75em, 1.25em‬, $li-color);
+          margin-top: 10px;
+        }
+        @media screen and (max-width: $break-mobile) {
+          margin-left: 0;
+        }
+      }
+      &_cost {
+        @include block-settings(flex, 58%, 9%, none, none, $mid-color);
+        @include flex-settings(row, nowrap, center, center, center);
+        @include position-settings(relative, -155px, 0, 0, 0, 0 0 0 8%);
+        @include text-settings("Yeseva One", center, uppercase, 0.9em, 1.25em, $light-color);
+        box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+        @media screen and (max-width: $break-mobile) {
+          margin-left: 0;
+        }
+      }
+      @media screen and (max-width: $break-mobile) {
+        width: 95%;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      @include flex-settings(column, nowrap, space-between, center, space-between);
+      margin: 10px 20px;
+    }
+  }
   @media screen and (max-width: $break-mobile) {
     height: 2030px;
     background-color: $light-color;
