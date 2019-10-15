@@ -2,6 +2,7 @@ $dark-color: #131313;
 $light-color: #fff;
 $mid-color: #E3B873;
 $li-color: #959595;
+$project-color: rgba(255, 255, 255, 0.3);
 
 $break-tablet: 980px;
 $break-mobile: 375px;
@@ -300,8 +301,91 @@ header, footer {
 }
 
 .completed-projects-container {
+  font-size: 27px;
   height: $completed-projects-height;
   background-color: $dark-color;
+  @include flex-settings(row, wrap, space-between, flex-start, stretch);
+  &__navigation{
+    @include block-settings(block, 43%, 24px);
+    @include position-settings(relative, 9%, 0, 0, 0, 0 0 0 40%);
+    ul { 
+      @include text-settings("Yeseva One", center, uppercase, 0.51em, 0.7em, $project-color);
+      @include flex-settings(row, nowrap, space-between);
+      margin: 0;
+      list-style: none;
+      li:hover {
+        color: $mid-color;
+        text-decoration: underline;
+      }
+    } 
+  }
+  &__introduction {
+    @include block-settings(inline-block, 30%, 17%);
+    @include position-settings(relative, 0, 0, 0, 0, 0 40px);
+    h2 {
+      width: 200px;
+      margin: 0;
+      font-style: normal;
+      font-weight: normal;
+      @include text-settings("Yeseva One", left, uppercase, 1em, 1.37em, $mid-color);
+    }
+    p {
+      @include text-settings("FuturaBookC", left, none, 0.66em, 1.4em, $light-color);
+    }
+  }
+  &__slider-list {
+    @include block-settings(inline-block, 30%, 200px);
+    position: relative;
+    top: -415px;
+    ul {
+      list-style: none;
+      @include flex-settings(row, wrap, space-around, flex-start, space-between);
+      li {
+        width: 50%;
+        h3 {
+          @include text-settings("Yeseva One", left, uppercase, 0.66em, 0.9em, $mid-color);
+          font-style: normal;
+          font-weight: normal;
+        }
+        p {
+          @include text-settings("Yeseva One", left, none, 0.55em, 1.3em, $light-color);
+          width: 140px;
+        }
+      }
+    }
+    &_pagination {
+      margin-left: 40px;
+      &_circle {
+        margin: 0 25px;
+        &:nth-child(3n) {
+          margin: 0;
+        }
+      }
+      &_arrow {
+        &:first-child {
+          transform: rotate(180deg);
+        }
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  &__slider-images {
+    @include block-settings(inline-block, 60%, 482px);
+    
+    img {
+      overflow: hidden;
+      display: inline-block;
+    }
+    &_button {
+      @include block-settings(inline-block, 6%, 11%, none, 50%, $mid-color);
+      @include position-settings(relative, 42%, 5%);
+      background: #E3B873;
+      box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
+      padding: 0;
+    }
+  }
   @media screen and (max-width: $break-mobile) {
     height: 700px;
   }
