@@ -3,6 +3,8 @@ $light-color: #fff;
 $mid-color: #E3B873;
 $li-color: #959595;
 $project-color: rgba(255, 255, 255, 0.3);
+$description-color: #363636;
+$form-font-color: rgba(54, 54, 54, 0.3);
 
 $break-tablet: 980px;
 $break-mobile: 375px;
@@ -10,7 +12,7 @@ $max-width: 1440px;
 $current-width: 100vw;
 $intro-height: 707px;
 $completed-projects-height: 1074px;
-$broadcast-form-height: 360px;
+$broadcast-form-height: 615px;
 $types-container-height: 800px;
 $measurement-form-container-height: 725px;
 $style-choice-container-height: 1017px;
@@ -112,6 +114,10 @@ $map-API-container-height: 465px;
   justify-content:  $justify-content;
   align-items: $align-items;
   align-content: $align-content;
+}
+
+html {
+  background-color: $li-color;
 }
 
 body {
@@ -311,6 +317,7 @@ header, footer {
     ul { 
       @include text-settings("Yeseva One", center, uppercase, 0.51em, 0.7em, $project-color);
       @include flex-settings(row, nowrap, space-between);
+      padding: 0;
       margin: 0;
       list-style: none;
       li:hover {
@@ -318,6 +325,9 @@ header, footer {
         text-decoration: underline;
       }
     } 
+    @media screen and (max-width: $break-mobile) {
+      display: none;
+    }
   }
   &__introduction {
     @include block-settings(inline-block, 30%, 17%);
@@ -328,9 +338,26 @@ header, footer {
       font-style: normal;
       font-weight: normal;
       @include text-settings("Yeseva One", left, uppercase, 1em, 1.37em, $mid-color);
+      @media screen and (max-width: $break-mobile) {
+        text-align: center;
+        width: 60%;
+        height: 60px;
+        margin: auto;
+      }
     }
     p {
       @include text-settings("FuturaBookC", left, none, 0.66em, 1.4em, $light-color);
+      @media screen and (max-width: $break-mobile) {
+        text-align: center;
+        width: 82%;
+        margin: 30px auto auto auto;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      text-align: center;
+      width: 100%;
+      height: 175px;
+      margin: 5% 0 0 0;
     }
   }
   &__slider-list {
@@ -362,38 +389,237 @@ header, footer {
         }
       }
       &_arrow {
+        opacity: 0.5;
         &:first-child {
           transform: rotate(180deg);
         }
         &:hover {
-          opacity: 0.5;
+          opacity: 1;
         }
+      }
+      @media screen and (max-width: $break-mobile) {
+        display: none;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      height: 146px;
+      width: 100%;
+      top: 0;
+      ul {
+        margin: 0;
+        padding-left: 5%;
       }
     }
   }
   &__slider-images {
     @include block-settings(inline-block, 60%, 482px);
-    
-    img {
+    position: relative;
+    &_list {
+      display: flex;
       overflow: hidden;
-      display: inline-block;
+      img {
+        position: relative;
+        flex-shrink: 0;
+        display: inline-block;
+        margin: 0;
+        @media screen and (max-width: $break-mobile) {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      img:last-child {
+        margin-left: 2%;
+      }
     }
     &_button {
-      @include block-settings(inline-block, 6%, 11%, none, 50%, $mid-color);
-      @include position-settings(relative, 42%, 5%);
+      @include block-settings(inline-block, 55px, 55px, none, 50%, $mid-color);
+      @include position-settings(absolute, 42%, 88%);
       background: #E3B873;
-      box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
       padding: 0;
+      &:hover {
+        box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
+      }
+      &:first-of-type {
+        @include position-settings(absolute, 42%, 12%);
+        transform: rotate(180deg);
+        display: none;
+        @media screen and (max-width: $break-mobile) {
+          display: inline-block;
+          left: 4%;
+        }
+      }
+      @media screen and (max-width: $break-mobile) {
+        width: 36px;
+        height: 36px;
+        left: 85%;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      width: 90%;
+      height: 241px;
     }
   }
   @media screen and (max-width: $break-mobile) {
+    font-size: 22px;
     height: 700px;
+    justify-content: center;
   }
 }
 
 .broadcast-form-container {
+  @include flex-settings(column, nowrap, space-between, center, space-between);
+  font-size: 20px;
   height: $broadcast-form-height;
+  &__logo {
+    @include position-settings(relative, -60%);
+    @include text-settings("Yeseva One", center, uppercase, 1em, 1.4em, $light-color);
+    font-style: normal;
+    font-weight: normal;
+    @media screen and (max-width: $break-mobile) {
+      position: static;
+    }
+  }
+  .camera-img-wrapper {
+    @include position-settings(relative, -55%);
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    &__vector {
+      transform: rotate(90deg);
+    }
+    @media screen and (max-width: $break-mobile) {
+      position: static;
+    }
+  } 
+  &__video {
+    @include position-settings(relative, -50%); 
+    flex-shrink: 0;
+    width: 56.7%;
+    height: 434px;
+    @media screen and (max-width: $break-mobile) {
+      width: 340px;
+      height: 207px;
+      position: static;
+    }
+  }
+  &__vector {
+    @include position-settings(relative, -45%); 
+    transform: rotate(90deg);
+    @media screen and (max-width: $break-mobile) {
+      position: static;
+    }
+  } 
+  &__description {
+    @include text-settings("FuturaBookC", center, none, 1em, 1.7em, $description-color);
+    @include position-settings(relative, -45%); 
+    width: 47%;
+    @media screen and (max-width: $break-mobile) {
+      width: 90%;
+      font-size: 0.63em;
+      color: $light-color;
+      position: static;
+    }
+  }
+  &__form {
+    @include flex-settings(row, wrap, space-around, space-between, space-between);
+    @include position-settings(relative, -35%); 
+    width: 53%;
+    height: 102px;
+    flex-shrink: 0;
+    &_name-input,
+    &_number-input {
+      @include flex-settings(column, wrap, space-around);
+      width: 230px;
+      height: 50px;
+      label {
+        width: 100%; 
+        float: left;
+        @include text-settings("FuturaBookC", left, none, 0.75em, 1em, $form-font-color);
+        @media screen and (max-width: $break-mobile) { 
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 15px;
+        }
+      }
+      input {
+        @include text-settings("FuturaBookC", left, none, 0.9em, 1em, $dark-color);
+        width: 100%;
+        display: block;
+        border: none;
+        border-bottom: 1px solid $form-font-color;
+        @media screen and (max-width: $break-mobile) { 
+          color: $light-color;
+          font-size: 18px;
+          background-color: transparent;
+          border-bottom: 1px solid $light-color;
+        }
+      }
+      @media screen and (max-width: $break-mobile) { 
+        width: 100%;
+      }
+    }
+    &_submission {
+      @media screen and (max-width: $break-mobile) {
+        width: 100%;
+      }
+      input{
+        @include text-settings("FuturaDemiC", center, uppercase, 0.75em, 1em, $light-color);
+        @include block-settings(inline-block, 200px, 51px, none, px, $mid-color);
+        &:hover {
+          box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
+        }
+        @media screen and (max-width: $break-mobile) {
+          font-size: 15px;
+          width: 100%;
+          position: relative;
+          top: 100px;
+        }
+      }
+    }
+    &_agreement {
+      width: 320px;
+      height: 18px;
+      @include text-settings("FuturaDemiC", left, none, 0.8em, 1em, $dark-color);
+      & input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        margin: 10px 0 0 20px;
+      }
+      & input + label:before {
+        content: '';
+        position: absolute;
+        left: 200px;
+        width: 18px;
+        height: 18px;
+        background: #CDD1DA;
+        @media screen and (max-width: $break-mobile) { 
+          left: 0px;
+        }
+      }
+      & input:checked + label:before {
+        background: url('/RSSchool/repair-design-project/assets/images/Checkbox.svg');
+      }
+      & input:checked + label:after {
+        left: 26px;
+      }
+      @media screen and (max-width: $break-mobile) { 
+        text-align: center;
+        color: $light-color;
+        font-size: 16px;
+        width: 100%;
+        position: relative;
+        bottom: 130px;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      width: 90%;
+      height: 340px;
+      font-size: 0.63em;
+      position: static;
+    }
+  }
   @media screen and (max-width: $break-mobile) {
+    font-size: 22px;
     height: 850px;
   }
 }

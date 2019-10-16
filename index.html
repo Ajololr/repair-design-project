@@ -51,8 +51,13 @@
         <p>Only a small part of the work performed by our company is presented on the site. For 14 years on in the construction market we have made happy more than 1000 families</p>
       </div>
       <div class="completed-projects-container__slider-images">
-        <img src="assets/images/Completed projects 1.svg" alt="Completed projects img">
-        <img src="assets/images/Completed projects 2.svg" alt="Completed projects img">
+        <div class="completed-projects-container__slider-images_list">
+          <img src="assets/images/Completed projects 1.svg" alt="Completed projects img">
+          <img src="assets/images/Completed projects 2.svg" alt="Completed projects img">
+        </div>
+        <button class="completed-projects-container__slider-images_button">
+            <img src="assets/images/Arrow right.svg" alt="Arrow right">
+          </button>
         <button class="completed-projects-container__slider-images_button">
           <img src="assets/images/Arrow right.svg" alt="Arrow right">
         </button>
@@ -86,9 +91,32 @@
       </div>
     </div>
     <div class="broadcast-form-container">  
-      <div class="video-container">
-
+      <h2 class="broadcast-form-container__logo">online control</h2>
+      <div class="camera-img-wrapper">
+        <img class="camera-img-wrapper__vector" src="assets/images/Vector.svg" alt="Vector">
+        <img class="camera-img-wrapper__camera-img" src="assets/images/Camera.svg" alt="Camera">
+        <img class="camera-img-wrapper__vector" src="assets/images/Vector.svg" alt="Vector">
       </div>
+      <iframe class="broadcast-form-container__video" width="560" height="315" src="https://www.youtube.com/embed/K-g-_Gn6JOE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <img class="broadcast-form-container__vector" src="assets/images/Vector.svg" alt="Vector">
+      <p class="broadcast-form-container__description">At each facility, a camera is installed that broadcasts the progress of work on the clock. At any time, you can go to our website and monitor the progress of work in your apartment. You can watch the live broadcast from one of our facilities! Leave a request below and you will receive a link to the broadcast.</p>
+      <form class="broadcast-form-container__form" action="">
+        <section class="broadcast-form-container__form_name-input">
+          <label for="Name-input">Name</label>
+          <input type="text" name="Name-input" id="Name-input" placeholder="What is your name:">
+        </section>
+        <section class="broadcast-form-container__form_number-input">
+          <label for="Number-input">Phone</label>
+          <input type="text" name="Number-input" id="Number-input" placeholder="Your phone number:">
+        </section>
+        <section class="broadcast-form-container__form_submission">
+          <input type="submit" value="SUBMIT">
+        </section>
+        <section class="broadcast-form-container__form_agreement">
+          <input type="checkbox" name="Agreement" id="Agreement" value="Agreement"> 
+          <label for="Agreement">I agree to the processing of personal data</label>
+        </section>
+      </form>
     </div>
     <div class="types-container">
       <h2 class="types-container__logo">types of repair</h2>
@@ -167,6 +195,23 @@
     </div>
   </main>
   <footer>
+    <div class="header-container">
+      <h1 class="header-container__logo">IC "Repair Design Project"</h1>
+      <nav class="header-container__navigation">
+        <ul>
+          <li>home</li>
+          <li>projects</li>
+          <li>measurement</li>
+          <li>team</li>
+          <li>reviews</li>
+          <li>contacts</li>
+        </ul>
+      </nav>
+      <a class="header-container__tel" href="tel:+7 (928) 768-32-39">+7 (928) 768-32-39</a>
+      <button class="header-container__call-btn" type="button">
+        <span>request a call</span>
+      </button>
+    </div>
   </footer>
 </body>
 </html>
