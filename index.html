@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="dist/css/style.min.css" as="">
+  <link rel="stylesheet" href="dist/css/style.min.css">
   <title>Repair-Design-Project</title>
 </head>
 <body>
@@ -113,8 +113,8 @@
           <input type="submit" value="SUBMIT">
         </section>
         <section class="broadcast-form-container__form_agreement">
-          <input type="checkbox" name="Agreement" id="Agreement" value="Agreement"> 
-          <label for="Agreement">I agree to the processing of personal data</label>
+          <input class="broadcast-form-container__form_agreement_check" type="checkbox" name="Agreement" id="Agreement" value="Agreement"> 
+          <label class="broadcast-form-container__form_agreement_text" for="Agreement">I agree to the processing of personal data</label>
         </section>
       </form>
     </div>
@@ -167,7 +167,36 @@
       </div>
     </div>
     <div class="measurement-form-container">
-
+			<div class="circles-wrapper">
+			</div>
+			<div class="form-and-advice-wrapper">
+				<form action="" class="form-and-advice-wrapper__form">
+						<h3 class="form-and-advice-wrapper__form_description">Leave a request for free departure of the measurer</h3>
+						<section class="form-and-advice-wrapper__form_name-input">
+							<label for="Name-input-second">Name</label>
+							<input type="text" name="Name-input" id="Name-input-second" placeholder="What is your name:">
+						</section>
+						<section class="form-and-advice-wrapper__form_number-input">
+							<label for="Number-input-second">Phone</label>
+							<input type="text" name="Number-input" id="Number-input-second" placeholder="Your phone number:">
+						</section>
+						<section class="form-and-advice-wrapper__form_mail-input">
+							<label for="Mail-input-second">Email</label>
+							<input type="text" name="Mail-input" id="Mail-input-second" placeholder="Your email">
+						</section>
+						<section class="form-and-advice-wrapper__form_agreement">
+							<input class="form-and-advice-wrapper__form_agreement_check" type="checkbox" name="Agreement" id="Agreement-second" value="Agreement"> 
+							<label class="form-and-advice-wrapper__form_agreement_text" for="Agreement-second">I agree to the processing of personal data</label>
+						</section>
+						<section class="form-and-advice-wrapper__form_submission">
+							<input type="submit" value="Call the measurer">
+						</section>
+					</form>
+				<div class="form-and-advice-wrapper__advice">
+					<img class="form-and-advice-wrapper__advice_img" src="assets/images/Pig.svg" alt="pig">
+					<p class="form-and-advice-wrapper__advice_text">Help save 10 - 20% of the cost of materials</p>
+				</div>
+			</div>
     </div>
     <div class="style-choice-container">
 

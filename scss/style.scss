@@ -5,6 +5,7 @@ $li-color: #959595;
 $project-color: rgba(255, 255, 255, 0.3);
 $description-color: #363636;
 $form-font-color: rgba(54, 54, 54, 0.3);
+$form-label-light-color: rgba(255, 255, 255, 0.5);
 
 $break-tablet: 980px;
 $break-mobile: 375px;
@@ -38,7 +39,7 @@ $map-API-container-height: 465px;
 @font-face {
   font-family: 'FuturaBookC';
   src: url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.eot');
-  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.eot?#iefix') format('embedded-opentype'),
+  src: url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.eot?') format('embedded-opentype'),
       url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.woff2') format('woff2'),
       url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.woff') format('woff'),
       url('/RSSchool/repair-design-project/assets/fonts/FuturaBookC.ttf') format('truetype');
@@ -124,7 +125,8 @@ body {
   max-width: $max-width;
   width: $current-width;
   margin: 0 auto;
-  background-color: $light-color;
+	background-color: $light-color;
+	box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 1);
   @media screen and (max-width: $break-mobile) {
     width: $break-mobile;
     background-color: $dark-color;
@@ -579,13 +581,13 @@ header, footer {
       width: 320px;
       height: 18px;
       @include text-settings("FuturaDemiC", left, none, 0.8em, 1em, $dark-color);
-      & input {
+      &_check {
         position: absolute;
         z-index: -1;
         opacity: 0;
         margin: 10px 0 0 20px;
       }
-      & input + label:before {
+      &_check + &_text:before {
         content: '';
         position: absolute;
         left: 200px;
@@ -596,10 +598,10 @@ header, footer {
           left: 0px;
         }
       }
-      & input:checked + label:before {
+      &_check:checked + &_text:before {
         background: url('/RSSchool/repair-design-project/assets/images/Checkbox.svg');
       }
-      & input:checked + label:after {
+      &_check:checked + &_text:after {
         left: 26px;
       }
       @media screen and (max-width: $break-mobile) { 
@@ -690,7 +692,99 @@ header, footer {
 }
 
 .measurement-form-container {
-  height: $measurement-form-container-height;
+	height: $measurement-form-container-height;
+	font-size: 20px;
+	background-image: url('/RSSchool/repair-design-project/assets/images/Building-back.svg');
+	background-repeat: no-repeat;
+	background-position: left top;
+	display: flex;
+	justify-content: space-around;
+	.circles-wrapper {
+		@include block-settings(inline-block, 780px, 690px);
+	}
+	.form-and-advice-wrapper {
+		&__form {
+			@include block-settings(flex, 506px, 509px, none, none, $dark-color);
+			@include flex-settings(row, wrap, space-around, space-between, space-around);
+			flex-shrink: 0;
+			&_description {
+				@include text-settings("FuturaDemiC", center, none, 1em, 1.25em, $light-color);
+				width: 50%;
+			}
+			&_name-input,
+			&_number-input,
+			&_mail-input {
+				@include flex-settings(column, wrap, space-around);
+				width: 80%;
+				height: 50px;
+				label {
+					width: 100%; 
+					float: left;
+					@include text-settings("FuturaBookC", left, none, 0.75em, 1em, $form-label-light-color);
+				}
+				input {
+					@include text-settings("FuturaBookC", left, none, 0.9em, 1em, $form-label-light-color);
+					@include block-settings(block, 100%, none, none, none, transparent);
+					border-bottom: 1px solid $form-label-light-color;
+				}
+			}
+			&_submission {
+				@media screen and (max-width: $break-mobile) {
+					width: 100%;
+				}
+				input{
+					@include text-settings("FuturaDemiC", center, uppercase, 0.75em, 1em, $light-color);
+					@include block-settings(inline-block, 200px, 51px, none, px, $mid-color);
+					&:hover {
+						box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
+					}
+					@media screen and (max-width: $break-mobile) {
+						font-size: 15px;
+						width: 100%;
+						position: relative;
+						top: 100px;
+					}
+				}
+			}
+			&_agreement {
+				width: 320px;
+				height: 18px;
+				@include text-settings("FuturaDemiC", left, none, 0.8em, 1em, $light-color);
+				&_check {
+					position: absolute;
+					z-index: -1;
+					opacity: 0;
+					margin: 10px 0 0 20px;
+				}
+				&_check + &_text:before {
+					content: '';
+					position: absolute;
+					width: 18px;
+					height: 18px;
+					background: #CDD1DA;
+				}
+				&_check:checked + &_text:before {
+					background: url('/RSSchool/repair-design-project/assets/images/Checkbox.svg');
+				}
+				&_check:checked + &_text:after {
+					left: 26px;
+				}
+			}
+		}
+		&__advice {
+			@include block-settings(flex, 325px, 100px);
+			margin: 30px auto;
+			&_img {
+				height: 100px;
+				width: 100px;
+			}
+			&_text {
+				@include text-settings("FuturaDemiC", left, none, 1em, 1.25em, $mid-color);
+				display: inline-block;
+				width: 334px;
+			}
+		}
+	}
   @media screen and (max-width: $break-mobile) {
     display: none;
   }
@@ -698,7 +792,10 @@ header, footer {
 
 .style-choice-container {
   height: $style-choice-container-height;
-  background-color: $dark-color;
+	background-color: $dark-color;
+	background-image: url('/RSSchool/repair-design-project/assets/images/Style-choice-back.svg');
+	background-repeat: no-repeat;
+	background-position: center;
   @media screen and (max-width: $break-mobile) {
     height: 242px;
     width: 340px;
