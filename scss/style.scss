@@ -804,6 +804,9 @@ header, footer {
     &__logo {
       @include text-settings("Yeseva One", left, uppercase, 1em, 1.5em, $mid-color);
       width: 100%;
+      @media screen and (max-width: $break-mobile) {
+        text-align: center;
+      }
     }
     &__list {
       @include flex-settings(column, nowrap, space-between, space-between, space-between);
@@ -812,11 +815,18 @@ header, footer {
       &_item {
         @include text-settings("Proxima Nova", left, none, 0.74em, 1.5em, $light-color);
         list-style: none;
+        cursor: pointer;
         &:hover {
           color: $mid-color;
           text-decoration: underline;
         }
       }
+      @media screen and (max-width: $break-mobile) {
+        display: none;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      width: 100%;
     }
   }
   .style-images-wrapper {
@@ -829,11 +839,53 @@ header, footer {
       &:last-child {
         margin-bottom: 50px;
       } 
+      @media screen and (max-width: $break-mobile) {
+        display: none;
+      }
+    }
+    &__slider-images {
+      display: none;
+      @media screen and (max-width: $break-mobile) {
+        @include block-settings(inline-block, 100%, 482px);
+        position: relative;
+        &_list {
+          display: flex;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+            display: inline-block;
+            margin: 0;
+          }
+        }
+        &_button {
+          @include block-settings(inline-block, 36px, 36px, none, 50%, $mid-color);
+          @include position-settings(absolute, 42%, 85%);
+          background: #E3B873;
+          padding: 0;
+          &:hover {
+            box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
+          }
+          &:first-of-type {
+            @include position-settings(absolute, 42%, 4%);
+            transform: rotate(180deg);
+            display: inline-block;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      width: 340px;
     }
   }
   @media screen and (max-width: $break-mobile) {
+    background-color: $light-color;
+    background-image: none;
     height: 242px;
-    width: 340px;
+    font-size: 22px;
+    @include flex-settings(column, nowrap, space-between, space-between);
   }
 }
 
