@@ -791,11 +791,46 @@ header, footer {
 }
 
 .style-choice-container {
+  @include flex-settings(row, nowrap, space-around, center);
   height: $style-choice-container-height;
-	background-color: $dark-color;
+	background-color: $light-color;
 	background-image: url('/RSSchool/repair-design-project/assets/images/Style-choice-back.svg');
 	background-repeat: no-repeat;
-	background-position: center;
+  background-position: center;
+  font-size: 27px;
+  .choice-list-wrapper {
+    @include block-settings(flex, 30%, 630px);
+    flex-direction: column;
+    &__logo {
+      @include text-settings("Yeseva One", left, uppercase, 1em, 1.5em, $mid-color);
+      width: 100%;
+    }
+    &__list {
+      @include flex-settings(column, nowrap, space-between, space-between, space-between);
+      height: 510px; 
+      padding: 0;
+      &_item {
+        @include text-settings("Proxima Nova", left, none, 0.74em, 1.5em, $light-color);
+        list-style: none;
+        &:hover {
+          color: $mid-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .style-images-wrapper {
+    @include block-settings(flex, 51%, 100%);
+    @include flex-settings(column, wrap, space-between, space-between, space-between);
+    &__item {
+      &:first-child {
+        margin-top: 50px;
+      } 
+      &:last-child {
+        margin-bottom: 50px;
+      } 
+    }
+  }
   @media screen and (max-width: $break-mobile) {
     height: 242px;
     width: 340px;
