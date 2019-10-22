@@ -17,7 +17,7 @@ $broadcast-form-height: 615px;
 $types-container-height: 800px;
 $measurement-form-container-height: 725px;
 $style-choice-container-height: 1017px;
-$design-choice-container-height: 921px;
+$design-choice-container-height: 590px;
 $steps-container-height: 1615px;
 $team-container-height: 643px;
 $clients-container-height: 642px;
@@ -797,6 +797,7 @@ header, footer {
 	background-image: url('/RSSchool/repair-design-project/assets/images/Style-choice-back.svg');
 	background-repeat: no-repeat;
   background-position: center;
+  background-size: 100%;
   font-size: 27px;
   .choice-list-wrapper {
     @include block-settings(flex, 30%, 630px);
@@ -831,14 +832,20 @@ header, footer {
   }
   .style-images-wrapper {
     @include block-settings(flex, 51%, 100%);
-    @include flex-settings(column, wrap, space-between, space-between, space-between);
-    &__item {
-      &:first-child {
-        margin-top: 50px;
-      } 
-      &:last-child {
-        margin-bottom: 50px;
-      } 
+    &__list {
+      @include flex-settings(column, wrap, space-between, space-between, space-between);
+      width: 100%;
+      &_item {
+        &:first-child {
+          margin-top: 50px;
+        } 
+        &:last-child {
+          margin-bottom: 50px;
+        } 
+        @media screen and (max-width: $break-mobile) {
+          display: none;
+        }
+      }
       @media screen and (max-width: $break-mobile) {
         display: none;
       }
@@ -846,7 +853,7 @@ header, footer {
     &__slider-images {
       display: none;
       @media screen and (max-width: $break-mobile) {
-        @include block-settings(inline-block, 100%, 482px);
+        @include block-settings(inline-block, 100%, 242px);
         position: relative;
         &_list {
           display: flex;
@@ -891,6 +898,81 @@ header, footer {
 
 .design-choice-container {
   height: $design-choice-container-height;
+  font-size: 20px;
+  &__logo {
+    @include text-settings("Yeseva One", center, uppercase, 1em, 1.4em, $dark-color);
+    @include block-settings(inline-block, 100%, 1em, none, none, transparent);
+    font-style: normal;
+    font-weight: normal;
+    margin-top: 8%;
+    @media screen and (max-width: $break-mobile) {
+      margin-top: 40%;
+      color: $light-color;
+    }
+  };
+  &__icon {
+    @include block-settings(block, 100%, 1.4em, none, none, transparent)
+  }
+  &__description {
+    @include text-settings("FuturaBookC", center, none, 1em, 1.7em, $description-color);
+    margin: 25px auto;
+    width: 47%;
+    @media screen and (max-width: $break-mobile) {
+      width: 60%;
+      margin-bottom: 0;
+      font-size: 0.63em;
+      color: $light-color;
+      position: static;
+    }
+  }
+  .types {
+    @include flex-settings(row, wrap, space-between, center, center);
+    @include position-settings(static, 0, 0, 0, 0, 30px auto);
+    margin: 30px 100px;
+    &__item {
+      @include block-settings(inline-block, 32%, 613px, none, none, none);  
+      &_img {
+        @include block-settings(block, 100%, 69%, none, none);
+      }
+      &_list {
+        @include block-settings(block, 84%, auto, none, none, $light-color);
+        @include position-settings(relative, -127px, 0, 0, 0, 0 auto);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+        padding-bottom: 60px;
+        h3 {
+          @include text-settings("Yeseva One", left, none, 0.9em, 1em‬, $dark-color);
+          @include position-settings(relative, 5px, -17px, 0, 0, 0);
+          padding-top: 25px;
+          font-style: normal;
+          font-weight: normal;
+        }
+        li {
+          @include text-settings("FuturaBookC", left, none, 0.75em, 1.25em‬, $li-color);
+          margin-top: 10px;
+        }
+        @media screen and (max-width: $break-mobile) {
+          margin-left: 0;
+        }
+      }
+      &_cost {
+        @include block-settings(flex, 58%, 9%, none, none, $mid-color);
+        @include flex-settings(row, nowrap, center, center, center);
+        @include position-settings(relative, -155px, 0, 0, 0, 0 0 0 8%);
+        @include text-settings("Yeseva One", center, uppercase, 0.9em, 1.25em, $light-color);
+        box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+        @media screen and (max-width: $break-mobile) {
+          margin-left: 0;
+        }
+      }
+      @media screen and (max-width: $break-mobile) {
+        width: 95%;
+      }
+    }
+    @media screen and (max-width: $break-mobile) {
+      @include flex-settings(column, nowrap, space-between, center, space-between);
+      margin: 10px 20px;
+    }
+  }
   @media screen and (max-width: $break-mobile) {
     height: 930px;
   }
