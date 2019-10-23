@@ -18,8 +18,8 @@ $types-container-height: 800px;
 $measurement-form-container-height: 725px;
 $style-choice-container-height: 1017px;
 $design-choice-container-height: 590px;
-$steps-container-height: 1615px;
-$team-container-height: 643px;
+$steps-container-height: 1250px;
+$team-container-height: 410px;
 $clients-container-height: 1523px;
 $questions-and-map-container-height: 955px;
 
@@ -204,6 +204,9 @@ header, footer {
   }
   @media screen and (max-width: $break-mobile) {
     height: 57px;
+    &:last-child {
+      display: none;
+    }
   }
 }
 
@@ -321,6 +324,7 @@ header, footer {
       margin: 0;
       list-style: none;
       li:hover {
+        cursor: pointer;
         color: $mid-color;
         text-decoration: underline;
       }
@@ -744,30 +748,35 @@ header, footer {
 					}
 				}
 			}
-			&_agreement {
-				width: 320px;
-				height: 18px;
-				@include text-settings("FuturaDemiC", left, none, 0.8em, 1em, $light-color);
-				&_check {
-					position: absolute;
-					z-index: -1;
-					opacity: 0;
-					margin: 10px 0 0 20px;
-				}
-				&_check + &_text:before {
-					content: '';
-					position: absolute;
-					width: 18px;
-					height: 18px;
-					background: #CDD1DA;
-				}
-				&_check:checked + &_text:before {
-					background: url('/RSSchool/repair-design-project/assets/images/Checkbox.svg');
-				}
-				&_check:checked + &_text:after {
-					left: 26px;
-				}
-			}
+      &_agreement {
+        width: 320px;
+        height: 18px;
+        @include text-settings("FuturaDemiC", center, none, 0.8em, 1em, $light-color);
+        width: 100%;
+        &_check {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+          margin: 10px 0 0 20px;
+        }
+        &_check + &_text:before {
+          content: '';
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          background: #CDD1DA;
+          left: 275px;
+          @media screen and (max-width: $break-mobile) {
+            left: 0;
+          }
+        }
+        &_check:checked + &_text:before {
+          background: url('/RSSchool/repair-design-project/assets/images/Checkbox.svg');
+        }
+        &_check:checked + &_text:after {
+          left: 26px;
+        }
+      }
 		}
 		&__advice {
 			@include block-settings(flex, 325px, 100px);
@@ -978,7 +987,92 @@ header, footer {
 
 .steps-container {
   height: $steps-container-height;
+  font-size: 27px;
   background-color: $dark-color;
+  .flex-wrapper {
+    @include flex-settings(column, wrap, space-around, space-between, space-around);
+    @include block-settings(flex, 100%, 690px);
+    position: relative;
+    top: 40%;
+  }
+  &__navigation{
+    @include block-settings(block, 53%, 180px);
+    &_list { 
+      @include flex-settings(row, wrap, space-between);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      &_item {
+        width: 30%;
+        opacity: 0.3;
+        cursor: pointer;
+        &_number {
+          @include text-settings("Yeseva One", left, uppercase, 0.55em, 1.37em, $light-color);
+          font-style: normal;
+          font-weight: normal;
+          border-bottom: 1px solid $mid-color;
+          width: 20px;
+        }
+        &_detail {
+          @include text-settings("FuturaBookC", left, none, 0.55em, 1.37em, $light-color);
+          width: 53%;
+        }
+        &:hover {
+          opacity: 1;
+        }
+      }
+    } 
+    @media screen and (max-width: $break-mobile) {
+      display: none;
+    }
+  }
+  &__introduction {
+    @include block-settings(inline-block, 30%, 100%);
+    @include position-settings(relative, 0, 0, 0, 0, 0 40px);
+    &_hint {
+      @include text-settings("FuturaDemiC", left, uppercase, 0.66em, 1.37em, $light-color);
+      &:last-child {
+        font-family: "Yeseva One";
+        font-style: normal;
+        font-weight: normal;
+      }
+    }
+    &_logo {
+      width: 200px;
+      margin: 0;
+      font-style: normal;
+      font-weight: normal;
+      margin-bottom: 20%;
+      @include text-settings("Yeseva One", left, uppercase, 1em, 1.37em, $mid-color);
+    }
+    &_title {
+      @include text-settings("Yeseva One", left, uppercase, 0.55em, 1.37em, $mid-color);
+      width: 50%;
+      font-style: normal;
+      font-weight: normal;
+    }
+    &_description {
+      @include text-settings("FuturaBookC", left, none, 0.66em, 1.4em, $light-color);
+    }
+    &_pagination {
+      @include flex-settings(row, nowrap, space-between);
+      margin-top: 15%;
+      width: 75%;
+      &_arrow {
+        opacity: 0.5;
+        &:first-child {
+          transform: rotate(180deg);
+        }
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__image {
+    @include block-settings(inline-block, 53%, auto);
+    position: relative;
+    }
   @media screen and (max-width: $break-mobile) {
     display: none;
   }
@@ -993,7 +1087,6 @@ header, footer {
     @include block-settings(inline-block, 100%, 1em, none, none, transparent);
     font-style: normal;
     font-weight: normal;
-    margin-top: 17%;
   };
   &__icon {
     @include block-settings(block, 100%, 1.4em, none, none, transparent)
