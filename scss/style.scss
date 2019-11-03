@@ -247,6 +247,7 @@ header, footer {
     height: 100%;
     left: 82px;
     top: -83px;
+    overflow: hidden;
     &__logo {
       @include position-settings(static, 0, 0, 0, 0, 14% 4.5% 0);
       @include text-settings("Yeseva One", left, uppercase, 1em, 1.325em, $light-color);
@@ -634,6 +635,8 @@ header, footer {
   &__logo {
     @include text-settings("Yeseva One", center, uppercase, 1em, 1.4em, $dark-color);
     @include block-settings(inline-block, 100%, 1em, none, none, transparent);
+    font-style: normal;
+    font-weight: normal;
     @media screen and (max-width: $break-mobile) {
       margin-top: 80px;
     }
@@ -700,9 +703,38 @@ header, footer {
 	background-repeat: no-repeat;
 	background-position: left top;
 	display: flex;
-	justify-content: space-around;
+  justify-content: space-around;
+  overflow: hidden;
 	.circles-wrapper {
-		@include block-settings(inline-block, 780px, 690px);
+    @include block-settings(inline-block, 780px, 690px, 3px solid $mid-color, 50%);
+    position: relative;
+    right: 21%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    &__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+      left: 80%;
+      &_circle {
+        @include block-settings(flex, 41px, 41px, none, 50%, $mid-color);
+        @include text-settings("Yeseva One", center, none, 0.9em, 1.25em, $light-color);
+        align-items: center;
+        justify-content: center;
+      }
+      &_text {
+        @include text-settings("FuturaMediumC", left, none, 0.9em, 1em, $dark-color);
+        width: 50%;
+        margin-left: 16px;
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        left: 96%;
+      }
+    }
 	}
 	.form-and-advice-wrapper {
 		&__form {
@@ -812,6 +844,8 @@ header, footer {
     &__logo {
       @include text-settings("Yeseva One", left, uppercase, 1em, 1.5em, $mid-color);
       width: 100%;
+      font-style: normal;
+      font-weight: normal;
       @media screen and (max-width: $break-mobile) {
         text-align: center;
       }
