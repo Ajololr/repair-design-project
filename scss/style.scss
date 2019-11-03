@@ -199,8 +199,10 @@ header, footer {
       line-height: 15px;
       font-family: "FuturaDemiC";
       text-transform: uppercase;
+      cursor: pointer;
       &:hover {
         color: $dark-color;
+        box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
       }
       @media screen and (max-width: $break-mobile) {
         display: none;
@@ -279,6 +281,7 @@ header, footer {
       @include position-settings(static, 0, 0, 0, 0, 0 0 0 4.5%);
       @include text-settings("FuturaDemiC", center, normal, 0.325em, 0.4em, $light-color);
       @include block-settings(inline-block, 207px, 51px, 1px solid #FFFFFF, 2px);
+      cursor: pointer;
       &:hover {
         background-color: $mid-color;
       }
@@ -303,6 +306,7 @@ header, footer {
     @include block-settings(inline-block, 247px, 97px, none, none, $dark-color);
     @include text-settings("Yeseva One", center, uppercase, 14px, 19px, $light-color);
     @include flex-settings(row, nowrap, center, center, center);
+    cursor: pointer;
     img {
       margin-left: 10px;
     }
@@ -406,6 +410,7 @@ header, footer {
       }
       &_arrow {
         opacity: 0.5;
+        cursor: pointer;
         &:first-child {
           transform: rotate(180deg);
         }
@@ -452,6 +457,7 @@ header, footer {
       @include position-settings(absolute, 42%, 88%);
       background: #E3B873;
       padding: 0;
+      cursor: pointer;
       &:hover {
         box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
       }
@@ -583,6 +589,7 @@ header, footer {
       input{
         @include text-settings("FuturaDemiC", center, uppercase, 0.75em, 1em, $light-color);
         @include block-settings(inline-block, 200px, 51px, none, px, $mid-color);
+        cursor: pointer;
         &:hover {
           box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
         }
@@ -782,7 +789,7 @@ header, footer {
           width: 18px;
           height: 18px;
           background: #CDD1DA;
-          left: 62%;
+          left: 57.4%;
           @media screen and (max-width: $break-tablet) {
             left: 54%;
           }
@@ -820,7 +827,8 @@ header, footer {
 				}
 				input{
 					@include text-settings("FuturaDemiC", center, uppercase, 0.75em, 1em, $light-color);
-					@include block-settings(inline-block, 200px, 51px, none, px, $mid-color);
+          @include block-settings(inline-block, 200px, 51px, none, px, $mid-color);
+          cursor: pointer;
 					&:hover {
 						box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
 					}
@@ -1121,6 +1129,7 @@ header, footer {
       width: 75%;
       &_arrow {
         opacity: 0.5;
+        cursor: pointer;
         &:first-child {
           transform: rotate(180deg);
         }
@@ -1393,6 +1402,7 @@ header, footer {
       input{
         @include text-settings("FuturaDemiC", center, uppercase, 0.75em, 1em, $light-color);
         @include block-settings(inline-block, 200px, 51px, none, px, $mid-color);
+        cursor: pointer;
         &:hover {
           box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
         }
@@ -1448,12 +1458,24 @@ header, footer {
       &_tel {
         font-style: normal;
         font-weight: normal;
+        &_link {
+          text-decoration: none;
+          color: $mid-color;
+        }
         @media screen and (max-width: $break-mobile) {
           font-size: 19px;
         }
       }
       &_inst {
         margin-left: 15px;
+      }
+      &_mail,
+      &_inst {
+        cursor: pointer;
+        border-radius: 50%;
+        &:hover {
+          box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
+        }
       }
       @media screen and (max-width: $break-mobile) {
         font-size: 19px;
