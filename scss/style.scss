@@ -184,6 +184,9 @@ header, footer {
       @media screen and (max-width: $break-tablet) {
         display: none;
       }
+      @media screen and (max-width: $break-mobile) {
+        display: inline;
+      }
     }
     &__call-btn {
       border-radius: 2px;
@@ -267,7 +270,9 @@ header, footer {
       @include block-settings(block, 37%, 12%);
       text-align: left;
       @media screen and (max-width: $break-mobile) {
-        width: 55%;
+        width: 80%;
+        font-size: 18px;
+        height: auto;
       }
     }
     &__button {
@@ -689,8 +694,12 @@ header, footer {
         @include position-settings(relative, -155px, 0, 0, 0, 0 0 0 8%);
         @include text-settings("Yeseva One", center, uppercase, 0.9em, 1.25em, $light-color);
         box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+        @media screen and (max-width: $break-tablet) {
+          width: 84%;
+        }
         @media screen and (max-width: $break-mobile) {
           margin-left: 0;
+          width: 58%;
         }
       }
       @media screen and (max-width: $break-mobile) {
@@ -775,7 +784,7 @@ header, footer {
           background: #CDD1DA;
           left: 62%;
           @media screen and (max-width: $break-tablet) {
-            left: 20%;
+            left: 54%;
           }
           @media screen and (max-width: $break-mobile) {
             left: 0;
