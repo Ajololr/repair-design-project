@@ -181,6 +181,9 @@ header, footer {
       color: $mid-color;
       font-size: 1em;
       font-family: "FuturaDemiC";
+      @media screen and (max-width: $break-tablet) {
+        display: none;
+      }
     }
     &__call-btn {
       border-radius: 2px;
@@ -243,9 +246,9 @@ header, footer {
     display: inline-block;
     position: relative;
     background-image: url("/RSSchool/repair-design-project/assets/images/intro.svg");
-    width: 1358px;
+    width: 94.3%;
     height: 100%;
-    left: 82px;
+    left: 5.7%;
     top: -83px;
     overflow: hidden;
     &__logo {
@@ -328,6 +331,9 @@ header, footer {
         cursor: pointer;
         color: $mid-color;
         text-decoration: underline;
+      }
+      @media screen and (max-width: $break-tablet) {
+        line-height: 1.1em;
       }
     } 
     @media screen and (max-width: $break-mobile) {
@@ -501,6 +507,9 @@ header, footer {
     flex-shrink: 0;
     width: 56.7%;
     height: 434px;
+    @media screen and (max-width: $break-tablet) {
+      height: 51%;
+    }
     @media screen and (max-width: $break-mobile) {
       width: 340px;
       height: 207px;
@@ -593,7 +602,7 @@ header, footer {
       &_check + &_text:before {
         content: '';
         position: absolute;
-        left: 200px;
+        left: 25%;
         width: 18px;
         height: 18px;
         background: #CDD1DA;
@@ -615,6 +624,9 @@ header, footer {
         position: relative;
         bottom: 130px;
       }
+    }
+    @media screen and (max-width: $break-tablet) {
+      width: 75%;
     }
     @media screen and (max-width: $break-mobile) {
       width: 90%;
@@ -877,6 +889,7 @@ header, footer {
       @include flex-settings(column, wrap, space-between, space-between, space-between);
       width: 100%;
       &_item {
+        width: 48%;
         &:first-child {
           margin-top: 50px;
         } 
@@ -927,6 +940,9 @@ header, footer {
     @media screen and (max-width: $break-mobile) {
       width: 340px;
     }
+  }
+  @media screen and (max-width: $break-tablet) {
+    height: 675px;
   }
   @media screen and (max-width: $break-mobile) {
     background-color: $light-color;
@@ -1136,6 +1152,9 @@ header, footer {
         display: none;
       }
     }
+    @media screen and (max-width: $break-tablet) {
+      width: 60%;
+    }
     @media screen and (max-width: $break-mobile) {
       width: 90%;
       margin-bottom: 0;
@@ -1144,8 +1163,7 @@ header, footer {
   }
   .members {
     @include flex-settings(row, wrap, space-between, center, center);
-    @include position-settings(static, 0, 0, 0, 0, 30px auto);
-    margin: 50px 100px;
+    @include position-settings(static, 0, 0, 0, 0, 50px 100px);
     margin-bottom: 0;
     &__item {
       @include block-settings(inline-block, 22%, 450px, none, none, none);  
@@ -1181,16 +1199,24 @@ header, footer {
         @include flex-settings(row, nowrap, center, center, center);
         @include position-settings(relative, -121%, -35px, 0, 0);
         box-shadow: 0px 5px 20px rgba(227, 184, 115, 0.5);
+        @media screen and (max-width: $break-tablet) {
+          top: -102%;
+        }
         @media screen and (max-width: $break-mobile) {
           top: -130%;
         }
-        
+      }
+      @media screen and (max-width: $break-tablet) {
+        width: 27%;
       }
       @media screen and (max-width: $break-mobile) {
         width: 90%;
         margin-left: 30px;
         margin-top: 40px;
       }
+    }
+    @media screen and (max-width: $break-tablet) {
+      margin-bottom: -100px;
     }
     @media screen and (max-width: $break-mobile) {
       @include flex-settings(column, nowrap, space-between, center, space-between);
@@ -1216,7 +1242,7 @@ header, footer {
   height: $clients-container-height;
   font-size: 20px;
   &__logo {
-    @include text-settings("Yeseva One", center, uppercase, 1em, 1.4em, $dark-color);
+    @include text-settings("Yeseva One", center, uppercase, 20px, 1.4em, $dark-color);
     @include block-settings(inline-block, 100%, 1em, none, none, transparent);
     font-style: normal;
     font-weight: normal;
@@ -1260,6 +1286,9 @@ header, footer {
           width: 90%;
           margin-top: 0;
           margin-bottom: 110px;
+          @media screen and (max-width: $break-tablet) {
+            margin-bottom: 55px;
+          }
         }
       }
       &_stat {
@@ -1281,8 +1310,15 @@ header, footer {
             margin-right: 1px;
           }
         }
+      }  
+      @media screen and (max-width: $break-tablet) {
+        height: 380px;
       }
     }
+  }
+  @media screen and (max-width: $break-tablet) {
+    font-size: 16px;
+    height: 1230px;
   }
   @media screen and (max-width: $break-mobile) {
     display: none;
@@ -1372,7 +1408,7 @@ header, footer {
         width: 18px;
         height: 18px;
         background: #CDD1DA;
-        left: 275px;
+        left: 20%;
         @media screen and (max-width: $break-mobile) {
           left: 0;
         }
