@@ -748,7 +748,7 @@ header, footer {
       }
     }
 	}
-	.form-and-advice-wrapper {
+	&__form-and-advice-wrapper {
 		&__form {
 			@include block-settings(flex, 506px, 509px, none, none, $dark-color);
 			@include flex-settings(row, wrap, space-around, space-between, space-around);
@@ -757,6 +757,37 @@ header, footer {
 				@include text-settings("FuturaDemiC", center, none, 1em, 1.25em, $light-color);
 				width: 50%;
 			}
+      &_agreement {
+        height: 18px;
+        @include text-settings("FuturaDemiC", center, none, 0.8em, 1em, $light-color);
+        width: 100%;
+        &_check {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+          margin: 10px 0 0 20px;
+        }
+        &_check + &_text:before {
+          content: '';
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          background: #CDD1DA;
+          left: 62%;
+          @media screen and (max-width: $break-tablet) {
+            left: 20%;
+          }
+          @media screen and (max-width: $break-mobile) {
+            left: 0;
+          }
+        }
+        &_check:checked + &_text:before {
+          background: url('/RSSchool/repair-design-project/assets/images/Checkbox.svg');
+        }
+        &_check:checked + &_text:after {
+          left: 26px;
+        }
+      }
 			&_name-input,
 			&_number-input,
 			&_mail-input {
@@ -792,35 +823,6 @@ header, footer {
 					}
 				}
 			}
-      &_agreement {
-        width: 320px;
-        height: 18px;
-        @include text-settings("FuturaDemiC", center, none, 0.8em, 1em, $light-color);
-        width: 100%;
-        &_check {
-          position: absolute;
-          z-index: -1;
-          opacity: 0;
-          margin: 10px 0 0 20px;
-        }
-        &_check + &_text:before {
-          content: '';
-          position: absolute;
-          width: 18px;
-          height: 18px;
-          background: #CDD1DA;
-          left: 275px;
-          @media screen and (max-width: $break-mobile) {
-            left: 0;
-          }
-        }
-        &_check:checked + &_text:before {
-          background: url('/RSSchool/repair-design-project/assets/images/Checkbox.svg');
-        }
-        &_check:checked + &_text:after {
-          left: 26px;
-        }
-      }
 		}
 		&__advice {
 			@include block-settings(flex, 325px, 100px);
@@ -1392,7 +1394,6 @@ header, footer {
       }
     }
     &_agreement {
-      width: 320px;
       height: 18px;
       @include text-settings("FuturaDemiC", center, none, 0.8em, 1em, $light-color);
       width: 100%;
@@ -1408,7 +1409,10 @@ header, footer {
         width: 18px;
         height: 18px;
         background: #CDD1DA;
-        left: 20%;
+        left: 30%;
+        @media screen and (max-width: $break-tablet) {
+          left: 20%;
+        }
         @media screen and (max-width: $break-mobile) {
           left: 0;
         }
